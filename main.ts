@@ -1,3 +1,29 @@
+namespace SpriteKind {
+    export const cloud = SpriteKind.create()
+}
+sprites.onCreated(SpriteKind.Food, function (sprite) {
+    cloud.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f . f f f . . . . 
+        . . . . f 3 3 3 f 3 3 3 f . . . 
+        . . . . f 3 3 3 3 3 1 3 f . . . 
+        . . . . f 3 3 3 3 3 3 3 f . . . 
+        . . . . . f 3 b b b 3 f . . . . 
+        . . . . . f f b b b f f . . . . 
+        . . . . . . f f b f f . . . . . 
+        . . . . . . . f f f . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+    cloud = sprite
+    cloud.x = randint(0, 10)
+    cloud.y = randint(0, 10)
+})
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     otherSprite.setImage(img`
         . . . . . b b b b b b . . . . . 
@@ -21,6 +47,7 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     otherSprite.setBounceOnWall(true)
     otherSprite.setVelocity(50, 50)
 })
+let cloud: Sprite = null
 let mySprite = sprites.create(img`
     . . 4 4 4 . . . . 4 4 4 . . . . 
     . 4 5 5 5 e . . e 5 5 5 4 . . . 
@@ -71,6 +98,24 @@ let test = sprites.create(img`
     . . . b b 5 5 5 5 5 5 b b . . . 
     . . . . . b b b b b b . . . . . 
     `, SpriteKind.Enemy)
+cloud = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.cloud)
 mySprite.setPosition(21, 47)
 myEnemy.setPosition(76, 65)
 test.setPosition(129, 37)
